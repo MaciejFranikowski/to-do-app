@@ -11,9 +11,13 @@ const ToDoList = (props) => {
 
 
     return (
+        <div>
             <ul>
                {toDoList}
             </ul>
+            <button onClick={props.adder}>Update posts</button>
+        </div>
+            
     );
     
 }

@@ -1,3 +1,6 @@
+
+import {auth } from "../firebase";
+
 const Item = (props) => {
     const text = props.text.split('/')
     return(

@@ -1,24 +1,28 @@
 import './App.css';
 
-import {BrowserRouter as Router, NavLink} from 'react-router-dom';
-import Main from './components/Main'
+import {BrowserRouter as Router} from 'react-router-dom';
+import Main from './components/Main';
+import Header from './components/Header';
+import DummyContext from "./DummyContext";
+
+import {useState} from 'react';
 
 function App() {
+
+  const [message, setMessage] = useState("empty");
+
   return (
     <Router>
-    <h2>Developer Tinder</h2>
-    <main>
+      <DummyContext.Provider value = {{message, setMessage}}>
+        <h2>Developer Tinder</h2>
+        <main>
 
-      <div class="topnav">
-          <NavLink to="/" exact>User List</NavLink>
-          <NavLink to="/new">Add new</NavLink>
-          <NavLink to="/trash">Trash</NavLink>
-      </div>
-      <br></br>
-      <Main />
-
-    </main>
-  </Router>
+          <Header/>
+          <br></br>
+          <Main />
+        </main>
+      </DummyContext.Provider>
+    </Router>
   );
 }
 
